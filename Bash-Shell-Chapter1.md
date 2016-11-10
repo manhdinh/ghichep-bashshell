@@ -26,8 +26,8 @@ Các **system variable** có dạng **$set**, một vài biến quan trọng nh�
 
 ##2. Thực hiện phép tính trong Shell 
 Trong Shell, các phép tính sau :
-|Phép tính|Cú pháp|
-|---------|-------|
+|Phép tính    |Cú pháp|
+|-------------|-------|
 |Cộng|+|
 |Trừ|-|
 |Chia|/|
