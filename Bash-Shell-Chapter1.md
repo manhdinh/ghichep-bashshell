@@ -154,7 +154,7 @@ Ví dụ :
  - **$ ls *** : hiện ra tất cả các file
  - **$ ls a*** : hiện ra tất cả các file tên bắt đầu với chữ **a**
  - **$ ls *.c** : hiện ra tất cả các file có ký tự **c**
- - **$ ls ut*.c : hiện ra tất cả các file có ký tự **c** nhưng phải bắt đầu bằng **ut**
+ - **$ ls ut*.c** : hiện ra tất cả các file có ký tự **c** nhưng phải bắt đầu bằng **ut**
  
 | Dấu wild card| Ý nghĩa |
 |--------------|---------|
