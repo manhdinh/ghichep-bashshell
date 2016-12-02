@@ -151,7 +151,7 @@ Giá trị hiển thị sẽ là : `manhdinh`
 |--------------|---------|
 |		*	   |Ứng với bất kỳ chuỗi hoặc nhóm các ký tự|
 Ví dụ : 
- - ** $ ls * ** : hiện ra tất cả các file
+ - **$ ls \*** : hiện ra tất cả các file
  - **$ ls a*** : hiện ra tất cả các file tên bắt đầu với chữ **a**
  - **$ ls *.c** : hiện ra tất cả các file có ký tự **c**
  - **$ ls ut*.c** : hiện ra tất cả các file có ký tự **c** nhưng phải bắt đầu bằng **ut**
