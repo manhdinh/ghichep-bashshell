@@ -110,7 +110,7 @@ $ expr $x / $y
 |-------------|------|
 |"|Giữ nguyên các giá trị trong dấu, ngoài trừ `\` và `$`|
 |'|Giữ nguyên các giá trị trong dấu|
-|`|Thực hiện command|
+|`	|Thực hiện command|
 
 ####5. Exit Status
 
@@ -151,10 +151,10 @@ Giá trị hiển thị sẽ là : `manhdinh`
 |--------------|---------|
 |		*	   |Ứng với bất kỳ chuỗi hoặc nhóm các ký tự|
 Ví dụ : 
- - **$ ls *** : hiện ra tất cả các file
+ - **$ ls * ** : hiện ra tất cả các file
  - **$ ls a*** : hiện ra tất cả các file tên bắt đầu với chữ **a**
  - **$ ls *.c** : hiện ra tất cả các file có ký tự **c**
-- ** $ ls ut*.c : hiện ra tất cả các file có ký tự **c** nhưng phải bắt đầu bằng **ut**
+ - **$ ls ut*.c : hiện ra tất cả các file có ký tự **c** nhưng phải bắt đầu bằng **ut**
  
 | Dấu wild card| Ý nghĩa |
 |--------------|---------|
@@ -166,13 +166,13 @@ Ví dụ :
 | Dấu wild card| Ý nghĩa |
 |--------------|---------|
 |	  [...]    | Ứng với bất kỳ ký tự nào trong ngoặc |
-Ví dụ :
- - **ls [abc]*** : hiện ra tất cả các file bắt đầu với ký tự a,b,c
+
+Ví dụ : **ls [abc]*** : hiện ra tất cả các file bắt đầu với ký tự a,b,c
 
 **Chú ý**  [..-..] Dấu **-** bao hàm các giá trị từ ký tự này đến ký tự kia
-Ví dụ : **$ ls /bin/[a-c]*** : hiện ra tất cả các file bắt đầu với a,b,c
+Ví dụ : **$ ls /bin/[a-c]* ** : hiện ra tất cả các file bắt đầu với a,b,c
 
-Nhưng với : ** $ ls /bin/[!a-o]** hoặc **$ ls /bin/[^a-o]** sẽ hiện ra các file bắt đầu với các ký tự không phải từ a đến o.
+Nhưng với : **$ ls /bin/[!a-o]** hoặc **$ ls /bin/[^a-o]** sẽ hiện ra các file bắt đầu với các ký tự không phải từ a đến o.
 
 ####7. Thực hiện nhiều command trên một command line
 
@@ -215,9 +215,9 @@ Filter thực hiện nhận input và tạo ra output.
 
 Ví dụ : Bạn có 1 file gọ là `hotel.txt` với 100 dòng dữ liệu .Và từ `hotel.txt` bạn muốn in các dòng từ 20 -> 30, 
 và lưu nó trong một file gọi là `hlist`. Câu lệnh như sau :
-```
-$ tail +20 < hotel.txt | head -n30 >hlist
 ```sh
+$ tail +20 < hotel.txt | head -n30 >hlist
+```
 
 Lúc này, **head** command được gọi là filter, sẽ nhận input từ **tail** command ( tail command sẽ bắt đầu lấy các dòng từ dòng 20) 
 và nhận các dòng như này là input cho head, output sẽ được ghi cho `hlist`.
