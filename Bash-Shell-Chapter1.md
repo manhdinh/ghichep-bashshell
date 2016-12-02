@@ -151,5 +151,73 @@ Giá trị hiển thị sẽ là : `manhdinh`
 |--------------|---------|
 |		*	   |Ứng với bất kỳ chuỗi hoặc nhóm các ký tự|
 Ví dụ : 
- - **$ ls \*** : hiện ra tất cả các file
- - 
+ - **$ ls *** : hiện ra tất cả các file
+ - **$ ls a*** : hiện ra tất cả các file tên bắt đầu với chữ **a**
+ - **$ ls *.c** : hiện ra tất cả các file có ký tự **c**
+- ** $ ls ut*.c : hiện ra tất cả các file có ký tự **c** nhưng phải bắt đầu bằng **ut**
+ 
+| Dấu wild card| Ý nghĩa |
+|--------------|---------|
+|		?	   | Ứng với bất kỳ giá trị đơn nào|
+Ví dụ :
+ - **$ ls ?** : hiện ra tất cả các file với tên có độ dài 1 ký tự
+ - **$ ls fo?** : hiện ra tất cả các file với độ dài 3 ký tự và bắt đầu với **fo**
+
+| Dấu wild card| Ý nghĩa |
+|--------------|---------|
+|	  [...]    | Ứng với bất kỳ ký tự nào trong ngoặc |
+Ví dụ :
+ - **ls [abc]*** : hiện ra tất cả các file bắt đầu với ký tự a,b,c
+
+**Chú ý**  [..-..] Dấu **-** bao hàm các giá trị từ ký tự này đến ký tự kia
+Ví dụ : **$ ls /bin/[a-c]*** : hiện ra tất cả các file bắt đầu với a,b,c
+
+Nhưng với : ** $ ls /bin/[!a-o]** hoặc **$ ls /bin/[^a-o]** sẽ hiện ra các file bắt đầu với các ký tự không phải từ a đến o.
+
+####7. Thực hiện nhiều command trên một command line
+
+Cú pháp :
+`command1;command2`
+
+Ví dụ : `$ date;who`
+
+####8. Tiến trình thực hiện command
+
+Trong một câu lệnh, ví dụ `$ mv y.bak y.ok` thì chỉ có phần `mv` là câu lệnh thực sự, các thành phần còn lại được gọi là các argument của câu lệnh.
+Trong câu lệnh này có 2 argument là `y.bak` và `y.ok`.
+
+ - **$#** : chỉ số argument có trong 1 command line
+ - **$*** và **$@** : đề cập tới tất cả các argument trong script
+
+####9. Biểu tượng chuyển hướng
+
+| Dấu | Ý nghĩa | 
+|-----|---------|
+|  >  |Thực hiện ghi đè giá trị vào file output|
+| >>  |Thực hiện ghi tiếp giá trị vào file output|
+|  <  |Thực hiện lấy giá trị từ file input|
+
+Ví dụ :
+ - **ls /root/ > file** : Thực hiện ghi giá trị vào file, nếu file đã có sẵn thì giá trị cũ sẽ bị ghi đè.
+ - **ls /root/ >> file** : Thực hiện ghi tiếp giá trị vào cuối file, các dữ liệu cũ trong file vẫn đc giữ nguyên.
+ - **cat < file** : Thực hiện nhận giá trị có trong file
+
+####10. Dấu |
+![shell](/images/pipe.gif)
+
+**Cú pháp** : command1|command2 
+
+Command 2 sẽ nhận output của command 1 làm input.
+
+####11. Filter
+
+Filter thực hiện nhận input và tạo ra output.
+
+Ví dụ : Bạn có 1 file gọ là `hotel.txt` với 100 dòng dữ liệu .Và từ `hotel.txt` bạn muốn in các dòng từ 20 -> 30, 
+và lưu nó trong một file gọi là `hlist`. Câu lệnh như sau :
+```
+$ tail +20 < hotel.txt | head -n30 >hlist
+```sh
+
+Lúc này, **head** command được gọi là filter, sẽ nhận input từ **tail** command ( tail command sẽ bắt đầu lấy các dòng từ dòng 20) 
+và nhận các dòng như này là input cho head, output sẽ được ghi cho `hlist`.
